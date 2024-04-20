@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mengakses Objek Radio</title> 
+</head>
+<body>
+    <h2>Klik pada musik yang paling Anda sukai</h2>
+    <form name="formTes" method="get">
+        <input type="radio" name="radioMusik" value="Jazz" onclick="info()">Jazz<br>
+        <input type="radio" name="radioMusik" value="Keroncong" onclick="info()">Keroncong<br>
+        <input type="radio" name="radioMusik" value="Dangdut" onclick="info()">Dangdut<br>
+        <input type="radio" name="radioMusik" value="Lainnya" onclick="info()">Lainnya<br>
+        <hr>
+        Info:
+        <input type="text" name="fieldMusik" size="40">
+    </form>
+
+    <script language="JavaScript">
+        function info() {
+            // Mendapatkan semua objek radio dengan nama "radioMusik"
+            var radios = document.getElementsByName("radioMusik");
+
+            // Iterasi melalui semua objek radio
+            for (var i = 0; i < radios.length; i++) {
+                // Memeriksa apakah objek radio ini yang dipilih
+                if (radios[i].checked) {
+                    // Mengatur nilai input teks dengan nilai objek radio yang dipilih
+                    document.formTes.fieldMusik.value = radios[i].value;
+                    break; // Keluar dari loop karena sudah menemukan objek radio yang dipilih
+                }
+            }
+        }
+    </script>
+</body>
+</html>
